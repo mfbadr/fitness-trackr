@@ -1,17 +1,20 @@
 {
-  "name": "mean-template",
+  "name": "fitness-trackr",
   "version": "0.0.0",
-  "description": "The MEAN Template",
+  "description": "A fitness tracker in angular",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nss-cohort-2014-06-07/mean-template"
+    "url": "https://github.com/mfbadr/fitness-trackr"
   },
-  "author": "Chyld Medford <chyld.medford@gmail.com>",
+  "author": "Mikey Badr <mfbadr@gmail.com>",
+  "contributers":[ "Logan Richardson <g.logan.richardson@gmail.com>",
+    "Joy Pratt <joympratt@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nss-cohort-2014-06-07/mean-template/issues"
+    "url": "https://github.com/mfbadr/fitness-trackr/issues"
   },
-  "homepage": "https://github.com/nss-cohort-2014-06-07/mean-template",
+  "homepage": "https://github.com/mfbadr/fitness-trackr",
   "dependencies": {
     "async": "^0.9.0",
     "bcrypt": "^0.8.0",
