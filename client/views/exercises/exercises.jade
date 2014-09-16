@@ -5,12 +5,13 @@ h3 {{title}}
   form(name='exerciseForm', novalidate)
     .col-xs-3
       .form-group
-        select.form-control#name(name='name', ng-model='exercise.name', ng-options='a._id as a.name for a in activities | orderBy:"name"', required)
+        select.form-control#name(name='name', ng-model='activity', ng-options='activity.type for activity in activities | orderBy:"type"', required)
           option(value='') Select Activity
       .form-group
+        select.form-contro#intensity(ng-show='activity', ng-model='exercise', ng-options='level as level.name for level in activity.level', required)
+          option(value='') Select Intensity
+      .form-group
+        label(for='hours') Enter Duration in Hours
         input.form-control#hours(type='number', name='hours', ng-model='exercise.hours', required, placeholder='0.5')
       .form-group
         button.btn.btn-primary(ng-show'exerciseForm.$valid', ng-click='addExercise()') Add Activity
-    .col-xs-3
-      .form-group
-        select.form-contro#intensity(ng-show='exercise', ng-model='exercise.level', ng-options='level.intensity for level in activities.{{exercise}}', required)
