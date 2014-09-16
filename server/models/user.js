@@ -32,4 +32,14 @@ User.login = function(o, cb){
   });
 };
 
+User.update = function(obj, user, cb){
+  user.email = obj.email;
+  user.age = obj.age;
+  user.height = obj.height;
+  user.weight = obj.weight;
+  user.bmr = obj.bmr;
+  user.gender = obj.gender;
+  User.collection.save(user, cb);
+};
+
 module.exports = User;

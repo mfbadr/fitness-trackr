@@ -22,9 +22,11 @@ module.exports = function(app, express){
   app.use(debug.info);
 
   app.get('/home', home.index);
+  app.get('/user', users.user);
   app.post('/register', users.register);
   app.post('/login', users.login);
   app.delete('/logout', users.logout);
+  app.post('/profile', users.update);
 
   app.use(security.bounce);
 

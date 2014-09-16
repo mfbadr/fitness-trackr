@@ -28,9 +28,25 @@ exports.login = function(req, res){
   });
 };
 
+exports.user = function(req, res){
+  res.send({user:req.user});
+};
+
 exports.logout = function(req, res){
   req.session.destroy(function(){
     res.setHeader('X-Authenticated-User', 'anonymous');
     res.status(200).end();
+  });
+};
+
+exports.update = function(req, res){
+  //console.log(User.update);
+  User.update(req.body, req.user, function(err, writeResult){
+    console.log('WRITERESULTS',writeResult);
+    if(writeResult === 1){
+      res.status(200).end();
+    }else{
+      res.status(418).end();
+    }
   });
 };
