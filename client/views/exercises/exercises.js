@@ -29,7 +29,7 @@
         $scope.exercises.push(response.data.exercise);
         $scope.exercise = {};
         $scope.activity = {};
-        toastr.success('You successfully added an exersize!');
+        toastr.success('You successfully added an exercise!');
       });
     };
 
