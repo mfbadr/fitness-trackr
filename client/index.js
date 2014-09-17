@@ -9,6 +9,7 @@
     .when('/login', {templateUrl:'/views/login/login.html', controller:'LoginCtrl'})
     .when('/logout', {templateUrl:'/views/logout/logout.html', controller:'LogoutCtrl'})
     .when('/exercises', {templateUrl:'/views/exercises/exercises.html', controller:'ExercisesCtrl'})
+    .when('/foods', {templateUrl:'/views/foods/foods.html', controller:'FoodsCtrl'})
     .when('/profile', {templateUrl:'/views/profile/profile.html', controller:'ProfileCtrl'})
     .when('/results', {templateUrl:'/views/results/results.html', controller:'ResultsCtrl'})
     .otherwise({redirectTo:'/'});

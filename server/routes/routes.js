@@ -33,6 +33,7 @@ module.exports = function(app, express){
   app.delete('/logout', users.logout);
   app.post('/profile', users.update);
   app.post('/exercises', users.addExercise);
+  app.post('/foods', users.addFood);
 
   app.put('/results', users.getResults);
 

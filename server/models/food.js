@@ -6,16 +6,16 @@ function Food(user, o){
   this.name       = o.name;
   this.date       = o.date;
   this.userId     = Mongo.ObjectID(user._id);
-  this.calConsume = o.calories;
+  this.calories = o.calories;
 }
 
 Object.defineProperty(Food, 'collection',{
   get: function(){return global.mongodb.collection('foods');}
 });
 
-Food.create = function(user, o, cb){
-  var e = new Food(user, o);
-  Food.collection.save(e, cb);
+Food.addFood = function(user, o, cb){
+  var f = new Food(user, o);
+  Food.collection.save(f, cb);
 };
 
 Food.all = function(user, cb){
