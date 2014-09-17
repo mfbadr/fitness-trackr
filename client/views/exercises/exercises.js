@@ -18,8 +18,16 @@
 
     $scope.activity = {};
     $scope.exercise = {};
+    $scope.exercises = [];
 
-    $scope.addExercise = function(){};
+    $scope.addExercise = function(){
+      Exercise.addExercise($scope.exercise).then(function(response){
+        $scope.exercises.push(response.data.exercise);
+        $scope.exercise = {};
+        $scope.activity = {};
+      });
+    };
+
   }]);
 })();
 

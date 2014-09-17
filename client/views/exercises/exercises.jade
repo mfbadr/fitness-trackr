@@ -4,18 +4,18 @@ h4 {{title}}
   form(name='exerciseForm', novalidate)
     .col-xs-3
       .form-group
-        label(for='date') Choose Date
-        input.form-control#date(name='date', ng-model='date', type='date', required)
-      .form-group
         label(for='type') Type
         select.form-control#name(name='name', ng-model='activity', ng-options='activity.type for activity in activities | orderBy:"type"', required)
           option(value='') Select Activity
       .form-group
         label(for='level') Intensity Level
-        select.form-control#intensity(ng-show='activity', ng-model='exercise', ng-options='level as level.name for level in activity.level', required)
+        select.form-control#intensity(ng-show='activity', ng-model='exercise.level', ng-options='level as level.name for level in activity.level', required)
           option(value='') Select Intensity
       .form-group
         label(for='hours') Enter Duration in Hours
         input.form-control#hours(type='number', name='hours', ng-model='exercise.hours', required, placeholder='0.5')
+      .form-group
+        label(for='date') Choose Date
+        input.form-control#date(name='date', ng-model='exercise.date', type='date', required)
       .form-group
         button.btn.btn-primary(ng-show='exerciseForm.$valid', ng-click='addExercise()') Add Activity

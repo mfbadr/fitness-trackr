@@ -3,18 +3,19 @@
 var Mongo = require('mongodb');
 
 function Exercise(user, o){
-  this.name   = o.activity.name;
-  this.date = o.date;
-  this.userId = Mongo.ObjectID(user._id);
-  this.hours  = o.hours;
-  this.calBurn  = (user.bmr/24) * o.activity.level.met * this.hours;
+  this.name     = o.level.name;
+  this.date     = o.date;
+  this.userId   = Mongo.ObjectID(user._id);
+  this.hours    = o.hours;
+  this.date     = o.date;
+  this.calBurn  = (user.bmr/24) * o.level.met * o.hours;
 }
 
 Object.defineProperty(Exercise, 'collection',{
   get: function(){return global.mongodb.collection('exercises');}
 });
 
-Exercise.create = function(user, o, cb){
+Exercise.addExercise = function(user, o, cb){
   var e = new Exercise(user, o);
   Exercise.collection.save(e, cb);
 };
