@@ -42,4 +42,24 @@ User.update = function(obj, user, cb){
   User.collection.save(user, cb);
 };
 
+User.getResults = function(user, body){
+  var results = {};
+  require('./food').all(user, function(err, meals){
+    results.means = meals;
+    require('./food').all(user, function(err, meals){});
+  });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = User;
