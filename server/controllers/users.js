@@ -1,6 +1,7 @@
 'use strict';
 
 var User      = require('../models/user'),
+    Food      = require('../models/food'),
     Exercise  = require('../models/exercise');
 
 exports.register = function(req, res){
@@ -55,6 +56,12 @@ exports.update = function(req, res){
 exports.addExercise = function(req, res){
   Exercise.addExercise(req.user, req.body, function(err, exercise){
     res.send({exercise:exercise});
+  });
+};
+
+exports.addFood = function(req, res){
+  Food.addFood(req.user, req.body, function(err, food){
+    res.send({food:food});
   });
 };
 

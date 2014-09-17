@@ -1,0 +1,15 @@
+h4 What Did You Eat?
+
+.row
+  .col-xs-3
+      form(name='foodForm', novalidate)
+          .form-group
+            label(for='name') Food Name
+            input.form-control#name(name='name', ng-model='food.name', autofocus, required, placeholder='What did you eat?')
+          .form-group
+            label(for='calories') Enter Calories Consumed
+            input.form-control#calories(type='number', name='calories', ng-model='food.calories', required, placeholder='How Many Calories? Rounded eg: 1000')
+          .form-group
+            label(for='date') Choose Date
+            input.form-control#date(name='date', ng-model='food.date', type='date', required)
+      button.btn.btn-primary(ng-show='foodForm.$valid', ng-click='addFood()') Add Food

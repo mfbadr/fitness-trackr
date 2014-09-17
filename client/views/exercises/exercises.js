@@ -3,7 +3,7 @@
 
   angular.module('fitness-trackr')
   .controller('ExercisesCtrl', ['$scope', 'Exercise', function($scope, Exercise){
-    $scope.title = 'Add an exercise';
+    $scope.title = 'Add An Exercise';
 
     $scope.activities = [
       {type: 'bicycling', level:[{name: 'bicycling-leisure', met: 6}, {name: 'bicycling-moderate', met: 8}, {name: 'bicycling-vigorous', met: 10}]},
@@ -25,7 +25,7 @@
         $scope.exercises.push(response.data.exercise);
         $scope.exercise = {};
         $scope.activity = {};
-        toastr.success('You successfully added an exersize!');
+        toastr.success('You successfully added an exercise!');
       });
     };
 
