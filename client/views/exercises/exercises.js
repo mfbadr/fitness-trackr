@@ -2,9 +2,13 @@
   'use strict';
 
   angular.module('fitness-trackr')
-  .controller('ExercisesCtrl', ['$scope', 'Exercise', function($scope, Exercise){
-    $scope.title = 'Add An Exercise';
+  .controller('ExercisesCtrl', ['$scope', 'Exercise', 'User', function($scope, Exercise, User){
+    $scope.title = 'Add an exercise';
 
+
+    User.user().then(function(response){
+      $scope.user = response.data.user;
+    });
     $scope.activities = [
       {type: 'bicycling', level:[{name: 'bicycling-leisure', met: 6}, {name: 'bicycling-moderate', met: 8}, {name: 'bicycling-vigorous', met: 10}]},
       {type: 'walking', level:[{name: 'walking-leisure', met: 3}, {name: 'walking-moderate', met: 4}, {name: 'walking-vigorous', met: 6}]},
@@ -25,7 +29,7 @@
         $scope.exercises.push(response.data.exercise);
         $scope.exercise = {};
         $scope.activity = {};
-        toastr.success('You successfully added an exercise!');
+        toastr.success('You successfully added an exersize!');
       });
     };
 

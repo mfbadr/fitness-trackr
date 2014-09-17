@@ -4,7 +4,7 @@ var Mongo = require('mongodb');
 
 function Food(user, o){
   this.name       = o.name;
-  this.date       = o.date;
+  this.date       = Date.parse(o.date);
   this.userId     = Mongo.ObjectID(user._id);
   this.calories = o.calories;
 }

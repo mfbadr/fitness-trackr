@@ -76,6 +76,7 @@ User.getResults = function(user, body, cb){
       results.totalCalsIn = totalCalsIn;
       results.startDate = body.startDate;
       results.endDate = body.endDate;
+      results.diff = diff;
 
 
       cb(null, results);

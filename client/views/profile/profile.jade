@@ -20,7 +20,7 @@
             input.form-control#height(type='number', required, ng-model='user.height')
           .form-group
             label(for='gender') Gender
-            select(ng-model='user.gender')
+            select(ng-model='user.gender', required)
               option(value='male') Male
               option(value='female') Female
         button.btn.btn-primary(ng-show='editForm.$valid', ng-click='editProfile()') Edit Profile

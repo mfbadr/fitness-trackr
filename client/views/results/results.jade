@@ -12,10 +12,43 @@
           .form-group
             label(for='endDate') End Date
             input.form-control#endDate(type='date', required, name='endDate', ng-model='endDate', autofocus)
-            h2 {{endDate}}
-        button.btn.btn-primary(ng-show='dateForm.$valid', ng-click='getResults()') Edit Profile
+        button.btn.btn-primary(ng-show='dateForm.$valid', ng-click='getResults()') Get Results
       .col-xs-9
-    .row(ng-show='results')
-      pre {{ results | json}}
-      
+        .overall(ng-show='results')
+          h4 Here are your stats for the {{results.diff}} days between {{results.startDate | date: 'mediumDate'}} and {{results.endDate | date: 'mediumDate'}}:
+          h4 You consumed a total of {{results.totalCalsIn.toFixed(0) | number}} calories. That's an average {{(results.totalCalsIn / results.diff.toFixed(0) | number)}} calories per day.
+          h4 You expended a total of {{results.totalCalsOut.toFixed(0) | number}} calories. That includes the {{user.bmr.toFixed(0) | number}} calories you burn everyday from your BMR.
+          h4 Your net calories over {{results.diff}} days is {{(results.totalCalsIn - results.totalCalsOut).toFixed(0) | number}}
+.panel.panel-default(ng-show='results')
+  .panel-heading
+    h3 Summary of your Results
+  .panel-body
+    .row
+    .row
+      .col-xs-6
+        h3 Your meals
+        table.table.table-striped.table-hover
+          thead
+            th Name
+            th Date
+            th Calories Consumed
+          tbody
+            tr(ng-repeat='meal in results.meals')
+              td {{meal.name}}
+              td {{meal.date | date : 'mediumDate'}}
+              td {{meal.calories}}
+      .col-xs-6
+        h3 Your Exercises
+        table.table.table-striped.table-hover
+          thead
+            th Activity
+            th Date
+            th Time in hours
+            th Calories Burned
+          tbody
+            tr(ng-repeat='e in results.exercises')
+              td {{e.name}}
+              td {{e.date | date : 'mediumDate'}}
+              td {{e.hours}}
+              td {{e.calBurn}}
 
