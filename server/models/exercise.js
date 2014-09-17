@@ -7,7 +7,7 @@ function Exercise(user, o){
   this.date     = o.date;
   this.userId   = Mongo.ObjectID(user._id);
   this.hours    = o.hours;
-  this.date     = o.date;
+  this.date     = Date.parse(o.date);
   this.calBurn  = (user.bmr/24) * o.level.met * o.hours;
 }
 

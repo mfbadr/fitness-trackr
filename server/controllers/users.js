@@ -59,6 +59,7 @@ exports.addExercise = function(req, res){
 };
 
 exports.getResults = function(req, res){
+  console.log('req.body', req.body);
   User.getResults(req.user, req.body, function(err, results){
     if(results){
       res.send(results);

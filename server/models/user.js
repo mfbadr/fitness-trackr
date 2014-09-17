@@ -1,6 +1,7 @@
 'use strict';
 
 var bcrypt = require('bcrypt'),
+    //moment = require('moment'),
     Mongo  = require('mongodb');
 
 function User(){
@@ -42,11 +43,43 @@ User.update = function(obj, user, cb){
   User.collection.save(user, cb);
 };
 
-User.getResults = function(user, body){
-  var results = {};
-  require('./food').all(user, function(err, meals){
-    results.means = meals;
-    require('./food').all(user, function(err, meals){});
+User.getResults = function(user, body, cb){
+  var results = {},
+      totalCalsIn = 0,
+      totalCalsOut = 0;
+
+  require('./food').collection.find({userId:user._id, date:{$gte: Date.parse(body.startDate), $lt: Date.parse(body.endDate)}}).toArray(function(err, meals){
+    results.meals = meals || [];
+
+    results.totalCalsIn = 0;
+    results.meals.forEach(function(meal){
+      totalCalsIn += meal.calories;
+    });
+
+    require('./exercise').collection.find({userId:user._id, date:{$gte: Date.parse(body.startDate), $lt: Date.parse(body.endDate)}}).toArray(function(err, exercises){
+
+      results.exercises = exercises || [];
+
+      results.totalCalsOut = 0;
+      results.exercises.forEach(function(exercise){
+        totalCalsOut += exercise.calBurn;
+      });
+      //find number of days in range, multiply by bmr, add to ccals out
+      var diff =  Math.floor((Date.parse(body.endDate) - Date.parse(body.startDate)) / 86400000);
+      console.log('DATE.PARSE', Date.parse(body.endDate));
+      console.log('DATE.PARSEstsart', Date.parse(body.startDate));
+
+      console.log('diff', diff);
+
+      totalCalsOut = (diff * user.bmr);
+      results.totalCalsOut = totalCalsOut;
+      results.totalCalsIn = totalCalsIn;
+      results.startDate = body.startDate;
+      results.endDate = body.endDate;
+
+
+      cb(null, results);
+    });
   });
 };
 

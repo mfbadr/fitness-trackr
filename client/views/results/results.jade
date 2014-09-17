@@ -11,10 +11,11 @@
             input.form-control#startDate(type='date', required, name='startDate', ng-model='startDate', autofocus)
           .form-group
             label(for='endDate') End Date
-            input.form-control#endDate(type='date', required, name='startDate', ng-model='endDate.date', autofocus)
+            input.form-control#endDate(type='date', required, name='endDate', ng-model='endDate', autofocus)
             h2 {{endDate}}
         button.btn.btn-primary(ng-show='dateForm.$valid', ng-click='getResults()') Edit Profile
       .col-xs-9
     .row(ng-show='results')
+      pre {{ results | json}}
       
 

@@ -24,8 +24,8 @@
       return $http.post('/profile', obj);
     }
 
-    function getResults(startDate, endDate){
-      return $http.get('/results',{startDate:startDate, endDate:endDate});
+    function getResults(date){
+      return $http.put('/results', date);
     }
 
     return {register:register, login:login, logout:logout, user:user, update:update, getResults:getResults};

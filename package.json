@@ -7,7 +7,8 @@
     "url": "https://github.com/mfbadr/fitness-trackr"
   },
   "author": "Mikey Badr <mfbadr@gmail.com>",
-  "contributers":[ "Logan Richardson <g.logan.richardson@gmail.com>",
+  "contributers": [
+    "Logan Richardson <g.logan.richardson@gmail.com>",
     "Joy Pratt <joympratt@gmail.com>"
   ],
   "license": "MIT",
@@ -24,6 +25,7 @@
     "express": "^4.9.0",
     "express-method-override": "0.0.3",
     "express-session": "^1.8.2",
+    "moment": "^2.8.3",
     "mongodb": "^1.4.11",
     "morgan": "^1.3.1",
     "multiparty": "^3.3.2",
