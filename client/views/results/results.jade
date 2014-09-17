@@ -1,2 +1,20 @@
-h3 {{title}}
+.panel.panel-default
+  .panel-heading
+    h3 {{title}}
+  .panel-body
+    .row
+      .col-xs-3
+        h3 Choose a range of dates
+        form(role='form', name='dateForm', novalidate)
+          .form-group
+            label(for='startDate') Start Date
+            input.form-control#startDate(type='date', required, name='startDate', ng-model='startDate', autofocus)
+          .form-group
+            label(for='endDate') End Date
+            input.form-control#endDate(type='date', required, name='startDate', ng-model='endDate.date', autofocus)
+            h2 {{endDate}}
+        button.btn.btn-primary(ng-show='dateForm.$valid', ng-click='getResults()') Edit Profile
+      .col-xs-9
+    .row(ng-show='results')
+      
 

@@ -24,7 +24,11 @@
       return $http.post('/profile', obj);
     }
 
-    return {register:register, login:login, logout:logout, user:user, update:update};
+    function getResults(startDate, endDate){
+      return $http.get('/results',{startDate:startDate, endDate:endDate});
+    }
+
+    return {register:register, login:login, logout:logout, user:user, update:update, getResults:getResults};
   }]);
 })();
 

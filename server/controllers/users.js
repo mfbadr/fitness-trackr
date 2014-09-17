@@ -57,3 +57,16 @@ exports.addExercise = function(req, res){
     res.send({exercise:exercise});
   });
 };
+
+exports.getResults = function(req, res){
+  User.getResults(req.user, req.body, function(err, results){
+    if(results){
+      res.send(results);
+      res.status(200).end();
+    }else{
+      res.send(403);
+    }
+  });
+};
+
+

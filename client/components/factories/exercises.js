@@ -7,7 +7,6 @@
     function addExercise(exercise){
       return $http.post('/exercises', exercise);
     }
-
     return {addExercise:addExercise};
   }]);
 })();
