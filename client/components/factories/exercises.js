@@ -4,8 +4,8 @@
   angular.module('fitness-trackr')
   .factory('Exercise', ['$http', function($http){
 
-    function addExercise(){
-      return $http.get('/home');
+    function addExercise(exercise){
+      return $http.post('/exercises', exercise);
     }
 
     return {addExercise:addExercise};

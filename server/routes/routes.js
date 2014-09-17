@@ -27,6 +27,7 @@ module.exports = function(app, express){
   app.post('/login', users.login);
   app.delete('/logout', users.logout);
   app.post('/profile', users.update);
+  app.post('/exercises', users.addExercise);
 
   app.use(security.bounce);
 

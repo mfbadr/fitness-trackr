@@ -1,6 +1,7 @@
 'use strict';
 
-var User = require('../models/user');
+var User      = require('../models/user'),
+    Exercise  = require('../models/exercise');
 
 exports.register = function(req, res){
   User.register(req.body, function(err, user){
@@ -48,5 +49,11 @@ exports.update = function(req, res){
     }else{
       res.status(418).end();
     }
+  });
+};
+
+exports.addExercise = function(req, res){
+  Exercise.addExercise(req.user, req.body, function(err, exercise){
+    res.send({exercise:exercise});
   });
 };
