@@ -5,7 +5,7 @@ h4 What Did You Eat?
       form(name='foodForm', novalidate)
           .form-group
             label(for='name') Food Name
-            input.form-control#name(name='name', ng-model='food.name', autofocus, required, placeholder='What did you eat?')
+            input.form-control#name(type='text', name='name', ng-model='food.name', autofocus, required, placeholder='What did you eat?')
           .form-group
             label(for='calories') Enter Calories Consumed
             input.form-control#calories(type='number', name='calories', ng-model='food.calories', required, placeholder='How Many Calories? Rounded eg: 1000')
