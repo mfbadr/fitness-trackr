@@ -14,7 +14,7 @@
       var date = {startDate:$scope.startDate, endDate:$scope.endDate};
       User.getResults(date).then(function(results){
         $scope.results = results.data;
-        debugger;
+        //debugger;
       });
     };
 
